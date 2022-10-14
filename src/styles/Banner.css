@@ -1,11 +1,9 @@
 .lmj-banner {
 	color: black;
 	text-align: right;
-	
-    padding: 32px;
+	padding: 32px;
 	border-bottom: solid 3px black;
-	
-    display: flex;
+	display: flex;
 	justify-content: flex-end;
 	flex-direction: row;
 	align-items: center;
