@@ -13,12 +13,24 @@ function App() {
 		localStorage.setItem('cart', JSON.stringify(cart))
 	}, [cart])
 
-	const handleDelete = (name, id) => {
+	const handleDelete = (name, amount) => {
+		console.log(name, amount);
+		
+		// {amount > 0 ? (
+		// 	<div>
+		// 		amount -1
+		// 	</div>
+		// ) : (
+		// 	<div>
+		// 		delete line
+		// 	</div>
+		// )}
+
 		//1. copie du state
 		const cartsCopy = [...cart];
 	
 		//2. manipulation sur la copie du state
-		const cartsCopyUpdated = cartsCopy.filter((cart) => cart.id !== id && cart.name !== name);
+		const cartsCopyUpdated = cartsCopy.filter((cart) => cart.name !== name);
 	
 		//3. modifier le state avec le setter
 		updateCart(cartsCopyUpdated);

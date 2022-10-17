@@ -23,7 +23,7 @@ function Cart({ cart, updateCart, handleDelete }) {
 					<ul>
 						{cart.map(({ name, price, amount }, index) => (
 							<div key={`${name}-${index}`}>
-								<button onClick={() => handleDelete(cart.name , cart.index)}>X</button>
+								<button onClick={() => handleDelete(name , amount)}>X</button>
 								{name} {price}€ x {amount}
 							</div>
 						))}
