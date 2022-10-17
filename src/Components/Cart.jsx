@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import '../styles/Cart.css'
 
-function Cart({ cart, updateCart }) {
+function Cart({ cart, updateCart, handleDelete }) {
 	const [isOpen, setIsOpen] = useState(true)
 	const items = Object.keys(cart)
 	const total = items.reduce(
@@ -23,6 +23,7 @@ function Cart({ cart, updateCart }) {
 					<ul>
 						{cart.map(({ name, price, amount }, index) => (
 							<div key={`${name}-${index}`}>
+								<button onClick={() => handleDelete(cart.name , cart.index)}>X</button>
 								{name} {price}€ x {amount}
 							</div>
 						))}

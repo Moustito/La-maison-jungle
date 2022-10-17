@@ -13,6 +13,17 @@ function App() {
 		localStorage.setItem('cart', JSON.stringify(cart))
 	}, [cart])
 
+	const handleDelete = (name, id) => {
+		//1. copie du state
+		const cartsCopy = [...cart];
+	
+		//2. manipulation sur la copie du state
+		const cartsCopyUpdated = cartsCopy.filter((cart) => cart.id !== id && cart.name !== name);
+	
+		//3. modifier le state avec le setter
+		updateCart(cartsCopyUpdated);
+	  };
+
 	return (
 		<div>
 			<Banner>
@@ -20,7 +31,7 @@ function App() {
 				<h1 className='lmj-title'>La maison jungle</h1>
 			</Banner>
 			<div className='lmj-layout-inner'>
-				<Cart cart={cart} updateCart={updateCart} />
+				<Cart cart={cart} updateCart={updateCart} handleDelete={handleDelete}/>
 				<ShoppingList cart={cart} updateCart={updateCart} />
 			</div>
 			<Footer />
